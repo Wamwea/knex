@@ -10,7 +10,11 @@ module.exports = {
     connection: {
       filename: './data/dev.sqlite3'
     },
-    useNullAsDetault: true
-  },
-  
+    useNullAsDetault: true,
+    pool: {
+      afterCreate: (conn, done) => {
+        conn.run('PRAGMA foreign_keys = ON', done)
+      }
+    }
+  }
 };

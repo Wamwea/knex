@@ -14,7 +14,7 @@ exports.up = function(knex) {
         table.text('text').notNullable()
         table.timestamps(true,true)
         //Foreign key to 'lessons' table
-        table.integer('lesson_id').unsigned().references('id').inTable('lessons').onDelete('CASCADE').onUpdate('CASCADE')
+        table.integer('lesson_id').notNullable().unsigned().references('id').inTable('lessons').onDelete('CASCADE').onUpdate('CASCADE')
 
     })
 };
